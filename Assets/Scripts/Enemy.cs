@@ -13,9 +13,12 @@ public class Enemy : MonoBehaviour
 
     BuffSpawner buffSpawner;
 
+    private Animator animator;
+
     void Start()
     {
         buffSpawner = BuffSpawner.instance;
+        animator = this.GetComponent<Animator>();
     }
 
     void Update()
@@ -34,10 +37,12 @@ public class Enemy : MonoBehaviour
 
         } else if (collision.gameObject.layer == GameInfo.coinLayer){
             Destroy(collision.gameObject);
+            animator.SetTrigger("Collected");
         }
         else if (collision.gameObject.layer == GameInfo.buffLayer){
             buffSpawner.repositionBuff();
             enemyMovement.buffCollected();
+            animator.SetTrigger("Collected");
         }
     }
 

@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
 
             if(touch.position.x < Screen.width / 2)
             {
-                transform.Rotate(0, 0, rotationAmountPerFrame, Space.World);
+                transform.Rotate(0, 0, Time.deltaTime * rotationAmountPerFrame, Space.World);
             }
             else
             {
-                transform.Rotate(0, 0, -rotationAmountPerFrame, Space.World);
+                transform.Rotate(0, 0, Time.deltaTime * -rotationAmountPerFrame, Space.World);
             }
 
         }

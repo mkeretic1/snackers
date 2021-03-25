@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static int score;
     public static int highScore;
+    public static int totalCoins;
     public static int coinValue;
     public static float speed;
     private static float speedIncrement_;
@@ -22,6 +23,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         highScore = PlayerPrefs.GetInt("HighScore", 0);
+        totalCoins = PlayerPrefs.GetInt("Coins", 0);
         score = this.startScore;
         coinValue = this.startCoinValue;
         speed = this.startSpeed;
@@ -42,7 +44,10 @@ public class PlayerStats : MonoBehaviour
 
     public static void checkHighScore()
     {
-        if(score > highScore)
+        totalCoins += score;
+        PlayerPrefs.SetInt("Coins", totalCoins);
+
+        if (score > highScore)
         {
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);

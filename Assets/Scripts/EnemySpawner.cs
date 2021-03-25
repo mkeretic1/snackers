@@ -1,24 +1,18 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject spawnPointsGO;
     public GameObject player;
 
-    private Transform[] spawnPoints;
+    public GameObject topSpawnArea;
+    public GameObject bottomSpawnArea;
 
     public float spawnBuffer;
     private bool spawningStarted;
 
-    void Awake()
-    {
-        getSpawnPoints();
-    }
-
+    private bool rotate;
     
     void Start()
     {
@@ -36,44 +30,41 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void getSpawnPoints()
-    {
-        spawnPoints = new Transform[spawnPointsGO.transform.childCount];
-        for (int i = 0; i < spawnPoints.Length; i++)
-        {
-            spawnPoints[i] = spawnPointsGO.transform.GetChild(i); 
-        }
-    }
 
     IEnumerator spawnEnemies()
     {
         while (!GameManager.gameOver)
         {
             Transform playerTransform = player.transform;
-            Transform furthestSpawnPoint = findFurthestSpawnPoint(playerTransform);
+            Vector2 spawnPosition = generateSpawnPosition(playerTransform);
 
-            Instantiate(enemyPrefab, furthestSpawnPoint.position, furthestSpawnPoint.rotation);
+            GameObject EnemyGO = (GameObject) Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            if (rotate) EnemyGO.transform.Rotate(new Vector3(0, 0, 180), Space.World);
             yield return new WaitForSeconds(spawnBuffer);
         }
     }
 
-    private Transform findFurthestSpawnPoint(Transform playerTransform)
+    private Vector2 generateSpawnPosition(Transform playerTransform)
     {
-        float longestDistance = 0.0f;
-        float distance = 0.0f;
-        Transform farthestSpawnPoint = null;
+        MeshCollider meshCollider = findFurthestSpawnArea(playerTransform);
+        float x = Random.Range(meshCollider.bounds.min.x, meshCollider.bounds.max.x);
+        float y = Random.Range(meshCollider.bounds.min.y, meshCollider.bounds.max.y);
+        return new Vector2(x, y);
+    }
 
-        foreach (Transform sp in spawnPoints)
+    private MeshCollider findFurthestSpawnArea(Transform playerTransform)
+    {
+        float distanceTop = Vector3.Distance(topSpawnArea.transform.position, playerTransform.position);
+        float distanceBottom = Vector3.Distance(bottomSpawnArea.transform.position, playerTransform.position);
+        if(distanceTop > distanceBottom)
         {
-            distance = Vector3.Distance(playerTransform.position, sp.position);
-
-            if (distance > longestDistance)
-            {
-                longestDistance = distance;
-                farthestSpawnPoint = sp;
-            }
-        };
-
-        return farthestSpawnPoint;
+            rotate = true;
+            return topSpawnArea.GetComponent<MeshCollider>();
+        }
+        else
+        {
+            rotate = false;
+            return bottomSpawnArea.GetComponent<MeshCollider>();
+        }
     }
 }

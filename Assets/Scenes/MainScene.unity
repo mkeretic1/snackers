@@ -1975,6 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4eee7a670d5d37479074ece18de01a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinCollectedFadeaway: {fileID: 259147499860502157, guid: f7bb3026be0cd01499cba7d250156eb9, type: 3}
 --- !u!114 &1227465407
 MonoBehaviour:
   m_ObjectHideFlags: 0

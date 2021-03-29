@@ -208,7 +208,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &89371123
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c52cf04961d90a41b561ed82527f309, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba342f48da9011c4eae5b279e7b0a27e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1201,7 +1201,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &698882550
@@ -1976,6 +1976,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinCollectedFadeaway: {fileID: 259147499860502157, guid: f7bb3026be0cd01499cba7d250156eb9, type: 3}
+  buffCollectedFadeaway: {fileID: 2157263515351079103, guid: efa9714b2f188c24ead227d8e6a4a35a, type: 3}
+  deathEffect: {fileID: 916361734898694481, guid: 9de2096d5f77f164e8a8735cb11ccdc5, type: 3}
+  buffCollectedEffect: {fileID: 8343738846263792048, guid: f474eaee726c3b645a35d7c766045be8, type: 3}
 --- !u!114 &1227465407
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
+    public GameObject deathEffect;
+
     void Start()
     {
         buffSpawner = BuffSpawner.instance;
@@ -30,20 +32,41 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.layer == GameInfo.terrainLayer)
         {
-            Destroy(gameObject);
-
+            die(collision);
         } else if (collision.gameObject.layer == GameInfo.enemyLayer){
             mergeEnemies(collision.gameObject);
 
         } else if (collision.gameObject.layer == GameInfo.coinLayer){
-            Destroy(collision.gameObject);
-            animator.SetTrigger("Collected");
+            coinCollected(collision);
+            
         }
         else if (collision.gameObject.layer == GameInfo.buffLayer){
-            buffSpawner.repositionBuff();
-            enemyMovement.buffCollected();
-            animator.SetTrigger("Collected");
+            buffCollected(collision);
+            
         }
+    }
+
+    private void buffCollected(Collider2D collision)
+    {
+        buffSpawner.repositionBuff();
+        enemyMovement.buffCollected();
+        animator.SetTrigger("Collected");
+    }
+
+    private void coinCollected(Collider2D collision)
+    {
+        Destroy(collision.gameObject);
+        animator.SetTrigger("Collected");
+    }
+
+    private void die(Collider2D collision)
+    {
+        AudioManager.instance.play("EnemyDeath");
+
+        GameObject effect = Instantiate(deathEffect, this.transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+
+        Destroy(gameObject);
     }
 
     private void mergeEnemies(GameObject collisionGO)

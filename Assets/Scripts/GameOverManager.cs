@@ -11,11 +11,13 @@ public class GameOverManager : MonoBehaviour
 
     public void retry()
     {
+        AudioManager.instance.play("MainTheme");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void mainMenu()
     {
+        AudioManager.instance.play("MainTheme");
         SceneManager.LoadScene("MainMenu");
     }
 

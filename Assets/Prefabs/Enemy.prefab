@@ -138,6 +138,7 @@ MonoBehaviour:
   isDestroyed: 0
   scaleVector: {x: 0.2, y: 0.2, z: 0}
   enemyMovement: {fileID: 8238570724096818980}
+  deathEffect: {fileID: 916361734898694481, guid: 9de2096d5f77f164e8a8735cb11ccdc5, type: 3}
 --- !u!95 &6849064379710137014
 Animator:
   serializedVersion: 3

@@ -4,7 +4,12 @@ public class Player : MonoBehaviour
 {
     BuffSpawner buffSpawner;
     private Animator animator;
+
     public GameObject coinCollectedFadeaway;
+    public GameObject buffCollectedFadeaway;
+
+    public GameObject deathEffect;
+    public GameObject buffCollectedEffect;
 
     void Start()
     {
@@ -16,27 +21,38 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == GameInfo.terrainLayer || collision.gameObject.layer == GameInfo.enemyLayer)
         {
-            Die(collision);
+            die(collision);
         } else if (collision.gameObject.layer == GameInfo.coinLayer){
-            CollectCoin(collision);          
+            collectCoin(collision);          
         } else if (collision.gameObject.layer == GameInfo.buffLayer)
         {
-            CollectBuff(collision);
+            collectBuff(collision);
             
         }
     }
 
-    private void Die(Collider2D collision)
+    private void die(Collider2D collision)
     {
+        AudioManager.instance.stop("MainTheme");
+        AudioManager.instance.play("GameOver");
+
+
+        GameObject effect = Instantiate(deathEffect, this.transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+
         PlayerStats.checkHighScore();
         Destroy(gameObject);
         GameManager.gameOver = true;
     }
 
-    private void CollectCoin(Collider2D collision)
+    private void collectCoin(Collider2D collision)
     {
-        GameObject effect = Instantiate(coinCollectedFadeaway, collision.transform.position, collision.transform.rotation);
-        effect.transform.position = collision.transform.position;
+        AudioManager.instance.play("CoinCollected");
+
+        GameObject fadeaway = Instantiate(coinCollectedFadeaway, collision.transform.position, Quaternion.identity);
+        Destroy(fadeaway, 5f);
+
+        GameObject effect = Instantiate(buffCollectedEffect, collision.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
 
         Destroy(collision.gameObject);
@@ -44,8 +60,16 @@ public class Player : MonoBehaviour
         animator.SetTrigger("Collected");
     }
 
-    private void CollectBuff(Collider2D collision)
+    private void collectBuff(Collider2D collision)
     {
+        AudioManager.instance.play("BuffCollected");
+
+        GameObject fadeaway = Instantiate(buffCollectedFadeaway, collision.transform.position, Quaternion.identity);
+        Destroy(fadeaway, 5f);
+
+        GameObject effect = Instantiate(buffCollectedEffect, collision.transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+
         buffSpawner.repositionBuff();
         PlayerStats.buffCollected();
         animator.SetTrigger("Collected");

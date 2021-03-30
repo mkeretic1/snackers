@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject player;
+    private GameObject player;
 
     public GameObject topSpawnArea;
     public GameObject bottomSpawnArea;
@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         spawningStarted = false;
     }
 

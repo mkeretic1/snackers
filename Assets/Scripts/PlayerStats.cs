@@ -29,6 +29,7 @@ public class PlayerStats : MonoBehaviour
         speed = this.startSpeed;
         speedIncrement_ = this.speedIncrement;
         coinValueIncrement_ = this.coinValueIncrement;
+
     }
 
     public static void coinCollected()
@@ -52,5 +53,11 @@ public class PlayerStats : MonoBehaviour
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);
         }
+    }
+
+    public static void playerPurchased(int cost)
+    {
+        totalCoins -= cost;
+        PlayerPrefs.SetInt("Coins", totalCoins);
     }
 }

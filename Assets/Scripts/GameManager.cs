@@ -10,8 +10,16 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject controlsUI;
 
+    private GameObject playerPrefab;
+
+    void Awake()
+    {
+        playerPrefab = PlayerSelect.selectedPlayerSkin;
+    }
+
     void Start()
     {
+        Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         startGame = false;
         gameOver = false;
     }

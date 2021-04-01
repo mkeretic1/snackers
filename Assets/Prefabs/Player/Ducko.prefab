@@ -4820,6 +4820,7 @@ GameObject:
   - component: {fileID: 1512560425353104874}
   - component: {fileID: 1512560425353104872}
   - component: {fileID: 1512560425353104789}
+  - component: {fileID: 2961952917523542746}
   m_Layer: 6
   m_Name: Ducko
   m_TagString: Player
@@ -5005,3 +5006,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2961952917523542746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512560425353104877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c9521d6fb968d45ba251c8a1369077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Destroy all enemies
+  freezeAbility: 0
+  destroyEnemiesAbility: 1

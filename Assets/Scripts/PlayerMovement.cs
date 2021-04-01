@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float rotationAmountPerFrame;
+    private Abilities playerAbility;
+
+    void Start()
+    {
+        playerAbility = gameObject.GetComponent<Abilities>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -14,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
             if (!GameManager.startGame) GameManager.startGame = true;
 
             Touch touch = Input.GetTouch(0);
+
+            if(touch.tapCount == 2)
+            {
+                playerAbility.castAbility(gameObject);
+                return;
+            }
 
             if(touch.position.x < Screen.width / 2)
             {

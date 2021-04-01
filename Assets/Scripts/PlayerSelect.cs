@@ -16,6 +16,8 @@ public class PlayerSelect : MonoBehaviour
 
     public static GameObject selectedPlayerSkin;
 
+    public Text abilityDescription;
+
     void Awake()
     {
         selectedPlayerPrefabIndex = PlayerPrefs.GetInt("Selected", 0);
@@ -52,7 +54,11 @@ public class PlayerSelect : MonoBehaviour
     {
         if (player != null) Destroy(player);
         player = (GameObject)Instantiate(playerPrefabs[selectedPlayerPrefabIndex].prefab, new Vector3(0, 0, 0), Quaternion.identity);
-        if (player != null) player.GetComponent<PlayerMovement>().enabled = false;
+        if (player != null) {
+            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponent<Abilities>().enabled = false;
+            abilityDescription.text = playerPrefabs[selectedPlayerPrefabIndex].abilityDescription;
+        }
 
         if (playerPrefabs[selectedPlayerPrefabIndex].purchased == 0)
         {

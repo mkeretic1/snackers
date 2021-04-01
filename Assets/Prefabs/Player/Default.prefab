@@ -4820,8 +4820,9 @@ GameObject:
   - component: {fileID: 7948315213769101077}
   - component: {fileID: 7948315213769101079}
   - component: {fileID: 7948315213769101162}
+  - component: {fileID: -4781256272168988128}
   m_Layer: 6
-  m_Name: Blocko
+  m_Name: Default
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5005,3 +5006,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4781256272168988128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948315213769101074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c9521d6fb968d45ba251c8a1369077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
+  freezeAbility: 0

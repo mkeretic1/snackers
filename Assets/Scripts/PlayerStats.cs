@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     public static int totalCoins;
     public static int coinValue;
     public static float speed;
+    private static float startSpeed_;
     private static float speedIncrement_;
     private static int coinValueIncrement_;
 
@@ -19,6 +20,8 @@ public class PlayerStats : MonoBehaviour
     public float speedIncrement = 1f;
     public int coinValueIncrement = 1;
 
+    public static bool invulnerable;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +30,10 @@ public class PlayerStats : MonoBehaviour
         score = this.startScore;
         coinValue = this.startCoinValue;
         speed = this.startSpeed;
+        startSpeed_ = this.startSpeed;
         speedIncrement_ = this.speedIncrement;
         coinValueIncrement_ = this.coinValueIncrement;
+        invulnerable = false;
 
     }
 
@@ -59,5 +64,10 @@ public class PlayerStats : MonoBehaviour
     {
         totalCoins -= cost;
         PlayerPrefs.SetInt("Coins", totalCoins);
+    }
+
+    public static void resetSpeed()
+    {
+        speed = startSpeed_;
     }
 }

@@ -11,19 +11,28 @@ public class Player : MonoBehaviour
     public GameObject deathEffect;
     public GameObject buffCollectedEffect;
 
+    private Abilities playerAbility;
+
+
     void Start()
     {
         buffSpawner = BuffSpawner.instance;
         animator = this.GetComponent<Animator>();
+        playerAbility = gameObject.GetComponent<Abilities>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == GameInfo.terrainLayer || collision.gameObject.layer == GameInfo.enemyLayer)
+        if (collision.gameObject.layer == GameInfo.enemyLayer)
         {
-            die(collision);
+            if (PlayerStats.invulnerable) return;
+            die();
+        }else if (collision.gameObject.layer == GameInfo.terrainLayer)
+        {
+            die();
         } else if (collision.gameObject.layer == GameInfo.coinLayer){
-            collectCoin(collision);          
+            collectCoin(collision);
+            playerAbility.rollForExtraCoins();
         } else if (collision.gameObject.layer == GameInfo.buffLayer)
         {
             collectBuff(collision);
@@ -31,7 +40,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void die(Collider2D collision)
+    private void die()
     {
         AudioManager.instance.stop("MainTheme");
         AudioManager.instance.play("GameOver");

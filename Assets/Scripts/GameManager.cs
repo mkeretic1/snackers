@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverUI;
     public GameObject controlsUI;
+    public GameObject abilityUI;
+
 
     private GameObject playerPrefab;
 
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         if (!startGame) return;
 
         controlsUI.SetActive(false);
+        abilityUI.SetActive(false);
 
         if (!gameOver) return;
 

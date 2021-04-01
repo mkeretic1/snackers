@@ -9,4 +9,5 @@ public class PlayerPrefab
     public int cost;
     [HideInInspector]
     public int purchased;
+    public string abilityDescription;
 }

@@ -38,4 +38,17 @@ public class EnemyMovement : MonoBehaviour
     {
         this.speed += speedMultiplier;
     }
+
+    public void freeze()
+    {
+        StartCoroutine("freezeCoroutine");
+    }
+
+    IEnumerator freezeCoroutine()
+    {
+        float currentSpeed = this.speed;
+        this.speed = 0f;
+        yield return new WaitForSeconds(5f);
+        this.speed = currentSpeed;
+    }
 }

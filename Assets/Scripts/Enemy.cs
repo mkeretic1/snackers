@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.layer == GameInfo.terrainLayer)
         {
-            die(collision);
+            die();
         } else if (collision.gameObject.layer == GameInfo.enemyLayer){
             mergeEnemies(collision.gameObject);
 
@@ -41,12 +40,12 @@ public class Enemy : MonoBehaviour
             
         }
         else if (collision.gameObject.layer == GameInfo.buffLayer){
-            buffCollected(collision);
+            buffCollected();
             
         }
     }
 
-    private void buffCollected(Collider2D collision)
+    private void buffCollected()
     {
         buffSpawner.repositionBuff();
         enemyMovement.buffCollected();
@@ -59,7 +58,7 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("Collected");
     }
 
-    private void die(Collider2D collision)
+    public void die()
     {
         AudioManager.instance.play("EnemyDeath");
 

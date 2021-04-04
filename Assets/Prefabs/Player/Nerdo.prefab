@@ -214,8 +214,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c9521d6fb968d45ba251c8a1369077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noActiveAbility: 0
   freezeAbility: 1
   destroyEnemiesAbility: 0
+  resetSpeedAbility: 0
+  invulnerabilityAbility: 0
+  extraCoinsAbility: 0
+  freezeEnemiesAbilityEffect: {fileID: 3949452264041383743, guid: b521bc55290448741870e69e51593e1b, type: 3}
+  destroyEnemiesAbilityEffect: {fileID: 3949452264041383743, guid: b521bc55290448741870e69e51593e1b, type: 3}
+  resetSpeedAbilityEffect: {fileID: 0}
+  invulnerableAbilityEffect: {fileID: 0}
+  rollSuccessEffect: {fileID: 0}
+  invulnerableColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &3106085304641996200
 GameObject:
   m_ObjectHideFlags: 0

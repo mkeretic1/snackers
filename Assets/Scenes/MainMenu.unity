@@ -642,7 +642,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379319433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13959026, y: 0.06589029, z: 0.6426139}
+  m_LocalPosition: {x: -9.2539215, y: 0.06589029, z: 0.6426139}
   m_LocalScale: {x: 1, y: 12, z: 1}
   m_Children: []
   m_Father: {fileID: 1595244122}
@@ -1405,6 +1405,36 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: RollSuccess
+    clip: {fileID: 8300000, guid: a932d32fca391cd48b4a00bba29315cd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Freeze
+    clip: {fileID: 8300000, guid: 639c0f1ec1d400f43ae6a0a300007873, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 293ab88c87fec6141bf4a181203ebaba, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Slowdown
+    clip: {fileID: 8300000, guid: 866a4452890abb643aae428cf0973feb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Invulnerable
+    clip: {fileID: 8300000, guid: 911bb93568c453043a7a5712bd55eb0e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &930957934
 Transform:
   m_ObjectHideFlags: 0
@@ -2058,7 +2088,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '10% CHANCE FOR EXTRA 10 COINS ON PICKUP (PASSIVE)
+  m_Text: 'CHANCE FOR EXTRA COINS ON PICKUP (PASSIVE)
 
 '
 --- !u!222 &1321709468
@@ -2420,7 +2450,7 @@ MonoBehaviour:
   - prefab: {fileID: 2504004371578265660, guid: c4cce6cc7edaa0f419d5de6c29d184cf, type: 3}
     cost: 500
     purchased: 0
-    abilityDescription: 10% CHANCE FOR EXTRA 10 COINS ON PICKUP (PASSIVE)
+    abilityDescription: CHANCE TO DOUBLE COLLECT A COIN (PASSIVE)
   selectedPlayerPrefabIndex: 0
   playBtnGO: {fileID: 1221388670}
   purchaseBtnGO: {fileID: 289098495}
@@ -2710,7 +2740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027821011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1252747, y: 0.06589029, z: 0.6426139}
+  m_LocalPosition: {x: 14.239605, y: 0.06589029, z: 0.6426139}
   m_LocalScale: {x: 1, y: 12, z: 1}
   m_Children: []
   m_Father: {fileID: 1595244122}

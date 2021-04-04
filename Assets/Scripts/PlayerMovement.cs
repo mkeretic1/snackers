@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float rotationAmountPerFrame;
-    private Abilities playerAbility;
+    //private Abilities playerAbility;
 
     void Start()
     {
-        playerAbility = gameObject.GetComponent<Abilities>();
+        //playerAbility = gameObject.GetComponent<Abilities>();
     }
 
     // Update is called once per frame
@@ -21,13 +22,16 @@ public class PlayerMovement : MonoBehaviour
 
             Touch touch = Input.GetTouch(0);
 
-            if(touch.tapCount == 2)
-            {
-                playerAbility.castAbility(gameObject);
-                return;
-            }
+            //if(touch.tapCount == 2)
+            //{
+            //    playerAbility.castAbility(gameObject);
+            //    //return;
+            //}
 
-            if(touch.position.x < Screen.width / 2)
+            if (IsPointerOverUI(touch.fingerId)) return;
+
+
+            if (touch.position.x < Screen.width / 2)
             {
                 transform.Rotate(0, 0, Time.deltaTime * rotationAmountPerFrame, Space.World);
             }
@@ -44,5 +48,12 @@ public class PlayerMovement : MonoBehaviour
         if (!GameManager.startGame) return;
 
         transform.Translate(Vector2.up * Time.fixedDeltaTime * PlayerStats.speed);
+    }
+
+    private bool IsPointerOverUI(int fingerId)
+    {
+        EventSystem eventSystem = EventSystem.current;
+        return (eventSystem.IsPointerOverGameObject(fingerId)
+            && eventSystem.currentSelectedGameObject != null);
     }
 }

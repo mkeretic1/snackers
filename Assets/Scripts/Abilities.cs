@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Abilities : MonoBehaviour
 {
+    public bool noActiveAbility = true;
+
     public bool freezeAbility;
     public bool destroyEnemiesAbility;
     public bool resetSpeedAbility;
     public bool invulnerabilityAbility;
     public bool extraCoinsAbility;
+
+    public GameObject freezeEnemiesAbilityEffect;
+    public GameObject destroyEnemiesAbilityEffect;
+    public GameObject resetSpeedAbilityEffect;
+    public GameObject invulnerableAbilityEffect;
+    public GameObject rollSuccessEffect;
 
     private bool casted;
 
@@ -26,22 +36,27 @@ public class Abilities : MonoBehaviour
     
         if (freezeAbility)
         {
-            freezeEnemies();
+            freezeEnemies(player);
             
         }else if (destroyEnemiesAbility)
         {           
-            destroyAllEnemies();
+            destroyAllEnemies(player);
         }else if (resetSpeedAbility)
         {
-            resetSpeed();
+            resetSpeed(player);
         }else if (invulnerabilityAbility)
         {
             castInvulnerability();
         }
     }
 
-    private void freezeEnemies()
+    private void freezeEnemies(GameObject player)
     {
+        AudioManager.instance.play("Freeze");
+
+        GameObject effect = Instantiate(freezeEnemiesAbilityEffect, player.transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject go in gameObjects)
         {
@@ -52,8 +67,13 @@ public class Abilities : MonoBehaviour
         }
     }
 
-    private void destroyAllEnemies()
+    private void destroyAllEnemies(GameObject player)
     {
+        AudioManager.instance.play("Explosion");
+
+        GameObject effect = Instantiate(destroyEnemiesAbilityEffect, player.transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject go in gameObjects)
         {
@@ -64,8 +84,13 @@ public class Abilities : MonoBehaviour
         }
     }
 
-    private void resetSpeed()
+    private void resetSpeed(GameObject player)
     {
+        AudioManager.instance.play("Slowdown");
+
+        GameObject effect = Instantiate(resetSpeedAbilityEffect, player.transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+
         PlayerStats.resetSpeed();
     }
 
@@ -81,6 +106,11 @@ public class Abilities : MonoBehaviour
         {
             yield break;
         }
+
+        AudioManager.instance.play("Invulnerable");
+
+        GameObject effect = Instantiate(invulnerableAbilityEffect, player.transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
 
         PlayerStats.invulnerable = true;
         Renderer rend = player.GetComponent<Renderer>();
@@ -103,7 +133,17 @@ public class Abilities : MonoBehaviour
 
             if (randomNumber < 10)
             {
-                PlayerStats.score += 10;
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+                player.GetComponent<Animator>().SetTrigger("RollSuccess");
+
+                AudioManager.instance.play("RollSuccess");
+
+                GameObject effect = Instantiate(rollSuccessEffect, player.transform.position, Quaternion.identity);
+                Destroy(effect, 5f);
+
+
+                PlayerStats.score += PlayerStats.coinValue;
             }
         }
     }

@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
 
     private Abilities playerAbility;
 
-
     void Start()
     {
         buffSpawner = BuffSpawner.instance;

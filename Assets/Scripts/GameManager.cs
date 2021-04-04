@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
 
     private GameObject playerPrefab;
 
+    private GameObject playerGO;
+
+    public GameObject abilityBtn;
+    public GameObject abilityInfo;
+    private Abilities abilities;
+
     void Awake()
     {
         playerPrefab = PlayerSelect.selectedPlayerSkin;
@@ -21,9 +27,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
+        playerGO = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         startGame = false;
         gameOver = false;
+        checkForActiveAbility();
     }
 
     private void Update()
@@ -35,9 +42,29 @@ public class GameManager : MonoBehaviour
 
         if (!gameOver) return;
 
+        if (abilityBtn.activeSelf) abilityBtn.SetActive(false); 
         if (gameOverUI.activeSelf) return;
 
         gameOverUI.SetActive(true);
 
+    }
+
+    public void castAbility()
+    {
+        if(abilities != null)
+        {
+            abilities.castAbility(playerGO);
+            abilityBtn.SetActive(false);
+        }
+    }
+
+    private void checkForActiveAbility()
+    {
+        abilities = playerGO.GetComponent<Abilities>();
+        if (abilities != null && abilities.noActiveAbility)
+        {
+            abilityBtn.SetActive(false);
+            abilityInfo.SetActive(false);
+        }
     }
 }

@@ -5018,6 +5018,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c9521d6fb968d45ba251c8a1369077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Destroy all enemies
+  noActiveAbility: 0
   freezeAbility: 0
   destroyEnemiesAbility: 1
+  resetSpeedAbility: 0
+  invulnerabilityAbility: 0
+  extraCoinsAbility: 0
+  freezeEnemiesAbilityEffect: {fileID: 0}
+  destroyEnemiesAbilityEffect: {fileID: 7947732840469980663, guid: 3dead3c741938d04091e29c48b9ac517, type: 3}
+  resetSpeedAbilityEffect: {fileID: 0}
+  invulnerableAbilityEffect: {fileID: 0}
+  rollSuccessEffect: {fileID: 0}
+  invulnerableColor: {r: 0, g: 0, b: 0, a: 0}

@@ -9,7 +9,8 @@ public class EnemySpawner : MonoBehaviour
     public GameObject topSpawnArea;
     public GameObject bottomSpawnArea;
 
-    public float spawnBuffer;
+    public float spawnWaitMin = 1f;
+    public float spawnWaitMax = 5f;
     private bool spawningStarted;
 
     private bool rotate;
@@ -41,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
 
             GameObject EnemyGO = (GameObject) Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
             if (rotate) EnemyGO.transform.Rotate(new Vector3(0, 0, 180), Space.World);
-            yield return new WaitForSeconds(spawnBuffer);
+            yield return new WaitForSeconds(Random.Range(spawnWaitMin, spawnWaitMax));
         }
     }
 

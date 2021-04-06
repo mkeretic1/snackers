@@ -5,7 +5,8 @@ using UnityEngine;
 public class CoinSpawner : MonoBehaviour
 {
     public GameObject coinPrefab;
-    public float spawnBuffer;
+    public float spawnWaitMin = 2f;
+    public float spawnWaitMax = 5f;
 
     public GameObject spawnArea;
     private MeshCollider meshCollider;
@@ -42,7 +43,7 @@ public class CoinSpawner : MonoBehaviour
             y = Random.Range(meshCollider.bounds.min.y, meshCollider.bounds.max.y);
             spawnPosition = new Vector2(x, y);
             Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
-            yield return new WaitForSeconds(spawnBuffer);
+            yield return new WaitForSeconds(Random.Range(spawnWaitMin, spawnWaitMax));
         }
         
     }

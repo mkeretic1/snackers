@@ -76,6 +76,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            EnemyMovement enemyMovement = this.GetComponent<EnemyMovement>();
             EnemyMovement collisionEnemyMovement = collisionGO.GetComponent<EnemyMovement>();
             Enemy collisionEnemy = collisionGO.GetComponent<Enemy>();
             Vector3 collisionEnemyLocalScale = collisionGO.transform.localScale;
@@ -88,6 +89,8 @@ public class Enemy : MonoBehaviour
                 collisionEnemy.isDestroyed = true;
             }
 
+            float speed = enemyMovement.speed > collisionEnemyMovement.speed ? enemyMovement.speed : collisionEnemyMovement.speed;
+
             if(this.transform.localScale.x > collisionEnemyLocalScale.x)
             {
                 this.transform.localScale += scaleVector;
@@ -95,10 +98,10 @@ public class Enemy : MonoBehaviour
             else
             {
                 this.transform.localScale = collisionEnemyLocalScale + scaleVector;
-                enemyMovement.speed = collisionEnemyMovement.speed;
             }
 
             this.transform.position = new Vector3(centerX, centerY, this.transform.position.z);
+            enemyMovement.speed = speed;    
         }
     }
 }

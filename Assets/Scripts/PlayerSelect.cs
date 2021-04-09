@@ -13,10 +13,13 @@ public class PlayerSelect : MonoBehaviour
 
     public GameObject playBtnGO;
     public GameObject purchaseBtnGO;
+    public GameObject purchaseTextGO;
 
     public static GameObject selectedPlayerSkin;
 
     public Text abilityDescription;
+    public Text purchaseBtnText;
+    public Text purchaseText;
 
     void Awake()
     {
@@ -31,6 +34,7 @@ public class PlayerSelect : MonoBehaviour
     void Start()
     {
         instantiatePlayerAndDisableMovement();
+
     }
 
     public void leftButtonPressed()
@@ -63,6 +67,7 @@ public class PlayerSelect : MonoBehaviour
         if (playerPrefabs[selectedPlayerPrefabIndex].purchased == 0)
         {
             playBtnGO.SetActive(false);
+            purchaseBtnText.text = playerPrefabs[selectedPlayerPrefabIndex].cost.ToString();
             purchaseBtnGO.SetActive(true);
         }
         else
@@ -82,6 +87,11 @@ public class PlayerSelect : MonoBehaviour
     public void purchase()
     {
         if (PlayerStats.totalCoins < playerPrefabs[selectedPlayerPrefabIndex].cost) return;
+
+        AudioManager.instance.play("Purchase");
+        purchaseText.text = "-" + playerPrefabs[selectedPlayerPrefabIndex].cost;
+        purchaseTextGO.GetComponent<Animator>().SetTrigger("Purchased");
+
 
         PlayerStats.playerPurchased(playerPrefabs[selectedPlayerPrefabIndex].cost);
         playerPrefabs[selectedPlayerPrefabIndex].purchased = 1;

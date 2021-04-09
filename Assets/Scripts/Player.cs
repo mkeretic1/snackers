@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -48,9 +49,14 @@ public class Player : MonoBehaviour
         GameObject effect = Instantiate(deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
 
+        if(PlayerStats.score > 0)
+        {
+            GameManager.scoreToCoins();
+        }
+
         PlayerStats.checkHighScore();
         Destroy(gameObject);
-        GameManager.gameOver = true;
+        GameManager.gameOver = true;     
     }
 
     private void collectCoin(Collider2D collision)

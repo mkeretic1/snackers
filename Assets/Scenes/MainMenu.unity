@@ -497,13 +497,14 @@ RectTransform:
   m_Children:
   - {fileID: 1906604153}
   - {fileID: 1040383783}
+  - {fileID: 2085396024}
   m_Father: {fileID: 1930501683}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 26, y: -1}
-  m_SizeDelta: {x: 158.82, y: 42.68}
+  m_SizeDelta: {x: 239.19, y: 42.68}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &214019938
 MonoBehaviour:
@@ -577,7 +578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53.5, y: 2.6}
+  m_AnchoredPosition: {x: 35.4, y: 2.6}
   m_SizeDelta: {x: 140.28, y: 58.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &231967873
@@ -613,7 +614,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '500
+  m_Text: '5000
+
 
 '
 --- !u!222 &231967874
@@ -1435,6 +1437,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Purchase
+    clip: {fileID: 8300000, guid: d0440e1e7ebf542a1884646f52220a69, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &930957934
 Transform:
   m_ObjectHideFlags: 0
@@ -1800,10 +1808,10 @@ RectTransform:
   m_Father: {fileID: 214019937}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 17.080002, y: -7.2550354}
-  m_SizeDelta: {x: 109.44, y: 33.29}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 85.17, y: 13.744965}
+  m_SizeDelta: {x: 87.62, y: 33.29}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1071951911
 GameObject:
@@ -2568,7 +2576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -48.4, y: 0.3}
+  m_AnchoredPosition: {x: -66.5, y: 0.3}
   m_SizeDelta: {x: 27.57, y: 30.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1494288202
@@ -3160,30 +3168,33 @@ MonoBehaviour:
     cost: 0
     purchased: 1
     abilityDescription: NONE
-  - prefab: {fileID: 1512560425353104877, guid: 5c6ec00f0c0f4be48b6bbc731c2f77ba, type: 3}
-    cost: 500
-    purchased: 0
-    abilityDescription: DESTROY ALL ENEMIES
   - prefab: {fileID: 3106085303981976686, guid: 57c4630953171c64686ebc82231132fd, type: 3}
-    cost: 500
+    cost: 1000
     purchased: 0
     abilityDescription: FREEZE ALL ENEMIES
-  - prefab: {fileID: 1854094785322224239, guid: 2ed9f87d1c300b74ab92acd451831c16, type: 3}
-    cost: 500
+  - prefab: {fileID: 1512560425353104877, guid: 5c6ec00f0c0f4be48b6bbc731c2f77ba, type: 3}
+    cost: 1500
     purchased: 0
-    abilityDescription: RESET SPEED
+    abilityDescription: DESTROY ALL ENEMIES
   - prefab: {fileID: 5641911996838036650, guid: 03bcc5a6b0eba1646a00085acf704014, type: 3}
-    cost: 500
+    cost: 2000
     purchased: 0
     abilityDescription: 10 SEC INVULNERABILITY
+  - prefab: {fileID: 1854094785322224239, guid: 2ed9f87d1c300b74ab92acd451831c16, type: 3}
+    cost: 3000
+    purchased: 0
+    abilityDescription: RESET SPEED
   - prefab: {fileID: 2504004371578265660, guid: c4cce6cc7edaa0f419d5de6c29d184cf, type: 3}
-    cost: 500
+    cost: 5000
     purchased: 0
     abilityDescription: CHANCE TO DOUBLE COLLECT A COIN (PASSIVE)
   selectedPlayerPrefabIndex: 0
   playBtnGO: {fileID: 1221388670}
   purchaseBtnGO: {fileID: 289098495}
+  purchaseTextGO: {fileID: 2085396023}
   abilityDescription: {fileID: 1321709467}
+  purchaseBtnText: {fileID: 231967873}
+  purchaseText: {fileID: 2085396026}
 --- !u!1 &1906604152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3440,3 +3451,104 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2085396023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2085396024}
+  - component: {fileID: 2085396027}
+  - component: {fileID: 2085396026}
+  - component: {fileID: 2085396025}
+  m_Layer: 5
+  m_Name: PurchaseText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2085396024
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085396023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 214019937}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 184.08, y: 13.744965}
+  m_SizeDelta: {x: 110.21, y: 33.29}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!95 &2085396025
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085396023}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 387b47b372074144f9d0926c298e872e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2085396026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085396023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_FontSize: 35
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '-500
+
+'
+--- !u!222 &2085396027
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085396023}
+  m_CullTransparentMesh: 1

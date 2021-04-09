@@ -131,7 +131,7 @@ public class Abilities : MonoBehaviour
         {
             int randomNumber = Random.Range(0, 100);
 
-            if (randomNumber < 10)
+            if (randomNumber < 20)
             {
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
 

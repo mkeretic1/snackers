@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
     public static bool startGame;
     public static bool gameOver;
+    public static Text scoreToCoinsText;
 
     public GameObject gameOverUI;
     public GameObject controlsUI;
@@ -20,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject abilityInfo;
     private Abilities abilities;
 
+    public Text scoreToCoinsText_;
+
     void Awake()
     {
         playerPrefab = PlayerSelect.selectedPlayerSkin;
@@ -30,6 +35,7 @@ public class GameManager : MonoBehaviour
         playerGO = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         startGame = false;
         gameOver = false;
+        scoreToCoinsText = scoreToCoinsText_;
         checkForActiveAbility();
     }
 
@@ -66,5 +72,11 @@ public class GameManager : MonoBehaviour
             abilityBtn.SetActive(false);
             abilityInfo.SetActive(false);
         }
+    }
+
+    public static void scoreToCoins()
+    {
+        scoreToCoinsText.text = "+" + PlayerStats.score;
+        scoreToCoinsText.gameObject.GetComponent<Animator>().SetTrigger("Purchased");
     }
 }

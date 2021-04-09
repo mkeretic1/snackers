@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour
     public static int score;
     public static int highScore;
     public static int totalCoins;
+    public static int maxCoins;
     public static int coinValue;
     public static float speed;
     private static float startSpeed_;
@@ -34,7 +35,7 @@ public class PlayerStats : MonoBehaviour
         speedIncrement_ = this.speedIncrement;
         coinValueIncrement_ = this.coinValueIncrement;
         invulnerable = false;
-
+        maxCoins = 9999;
     }
 
     public static void coinCollected()
@@ -51,6 +52,7 @@ public class PlayerStats : MonoBehaviour
     public static void checkHighScore()
     {
         totalCoins += score;
+        if (totalCoins > maxCoins) totalCoins = maxCoins;
         PlayerPrefs.SetInt("Coins", totalCoins);
 
         if (score > highScore)

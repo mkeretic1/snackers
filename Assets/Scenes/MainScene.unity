@@ -560,7 +560,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 269}
-  m_SizeDelta: {x: 29.3, y: 31.6}
+  m_SizeDelta: {x: 40.32, y: 38.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &182369671
 MonoBehaviour:
@@ -4519,7 +4519,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 199.29999}
-  m_SizeDelta: {x: 346.85, y: 30}
+  m_SizeDelta: {x: 387.85, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1897833919
 MonoBehaviour:
@@ -4554,7 +4554,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: COLLECT COINS AND BUFFS
+  m_Text: COLLECT COINS AND MULTIPLIERS
 --- !u!222 &1897833920
 CanvasRenderer:
   m_ObjectHideFlags: 0

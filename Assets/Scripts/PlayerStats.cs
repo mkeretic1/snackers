@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour
         speedIncrement_ = this.speedIncrement;
         coinValueIncrement_ = this.coinValueIncrement;
         invulnerable = false;
-        maxCoins = 9999;
+        maxCoins = 9999; 
     }
 
     public static void coinCollected()

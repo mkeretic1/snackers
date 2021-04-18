@@ -12,7 +12,7 @@ The more buffs you collect the faster you go and snacks become more valuable. Us
 
 Unlock up to 6 different characters with varying abilities.
 
-![Snackers2](https://user-images.githubusercontent.com/58340093/115150024-e4c29d80-a066-11eb-8c2f-76facaf6de70.jpg) | ![Snackers3](https://user-images.githubusercontent.com/58340093/115150025-e4c29d80-a066-11eb-945b-848fd49b076d.jpg) | ![Snackers4](https://user-images.githubusercontent.com/58340093/115150026-e55b3400-a066-11eb-9ecf-8dce9e60c6cd.jpg)
+![Snackers2](https://user-images.githubusercontent.com/58340093/115150024-e4c29d80-a066-11eb-8c2f-76facaf6de70.jpg)|![Snackers3](https://user-images.githubusercontent.com/58340093/115150025-e4c29d80-a066-11eb-945b-848fd49b076d.jpg)|![Snackers4](https://user-images.githubusercontent.com/58340093/115150026-e55b3400-a066-11eb-9ecf-8dce9e60c6cd.jpg)
 
 ## Technologies
 Project is created with:
